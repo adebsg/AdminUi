@@ -67,6 +67,6 @@ class Location extends \yii\db\ActiveRecord
      */
     public static function find()
     {
-        return new \frontend\Queries\LocationQuery(get_called_class());
+        return new \backend\Queries\LocationQuery(get_called_class());
     }
 }

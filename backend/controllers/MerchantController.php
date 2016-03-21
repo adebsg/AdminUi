@@ -3,8 +3,9 @@
 namespace backend\controllers;
 
 use Yii;
-use frontend\models\Merchant;
-use frontend\models\MerchantSearch;
+use backend\models\Merchant;
+use yii\filters\AccessControl;
+use backend\models\MerchantSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -17,12 +18,22 @@ class MerchantController extends Controller
     public function behaviors()
     {
         return [
-            'verbs' => [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['index', 'create','view','update','delete'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
+            /*'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['post'],
                 ],
-            ],
+            ],*/
         ];
     }
 

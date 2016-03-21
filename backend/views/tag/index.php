@@ -8,8 +8,21 @@ use yii\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Tags';
-$this->params['breadcrumbs'][] = $this->title;
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
+<!--
+<div class="container">
+<ul class="breadcrumb">
+<li>
+<a href="/adminUi/backend/web/index.php?r=site%2Findex">Home</a></li>
+<a href="/adminUi/backend/web/index.php?r=location%2Findex">Location</a>
+<a href="/adminUi/backend/web/index.php?r=merchant%2Findex">Merchant</a>
+<a href="/adminUi/backend/web/index.php?r=tag%2Findex">Tag</a>
+<a href="/adminUi/backend/web/index.php?r=category%2Findex">Category</a>
+<a href="/adminUi/backend/web/index.php?r=user%2Findex">User</a>
+</ul>
+</div>
+-->
 <div class="tag-index">
 
     <h1><?= Html::encode($this->title) ?></h1>

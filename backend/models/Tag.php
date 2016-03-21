@@ -51,6 +51,6 @@ class Tag extends \yii\db\ActiveRecord
      */
     public static function find()
     {
-        return new \frontend\Queries\TagQuery(get_called_class());
+        return new \backend\Queries\TagQuery(get_called_class());
     }
 }

@@ -51,6 +51,6 @@ class Category extends \yii\db\ActiveRecord
      */
     public static function find()
     {
-        return new \frontend\Queries\CategoryQuery(get_called_class());
+        return new \backend\Queries\CategoryQuery(get_called_class());
     }
 }

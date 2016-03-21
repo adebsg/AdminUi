@@ -5,6 +5,9 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use common\models\LoginForm;
+use backend\models\PasswordResetRequestForm;
+use backend\models\ResetPasswordForm;
+use backend\models\SignupForm;
 use yii\filters\VerbFilter;
 
 /**
@@ -20,13 +23,15 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
+                'only' => ['logout', 'signup'],
                 'rules' => [
                     [
-                        'actions' => ['login', 'error'],
+                        'actions' => ['signup'],
                         'allow' => true,
+                        'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -52,10 +57,30 @@ class SiteController extends Controller
             ],
         ];
     }
-
+    
+    
     public function actionIndex()
     {
-        return $this->render('index');
+       
+       
+       if (!\Yii::$app->user->isGuest) {
+           return $this->render('index');
+           
+        }else{
+            
+            $model = new LoginForm();
+            if ($model->load(Yii::$app->request->post()) && $model->login()) {
+                return $this->goBack();
+            } else {
+                return $this->render('login', [
+                    'model' => $model,
+                ]);
+            }
+            
+        }
+
+        
+        //return $this->redirect(['/site/login']);
     }
 
     public function actionLogin()
@@ -72,6 +97,22 @@ class SiteController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+    
+    public function actionSignup()
+    {
+        $model = new SignupForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->signup()) {
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
+                }
+            }
+        }
+
+        return $this->render('signup', [
+            'model' => $model,
+        ]);
     }
 
     public function actionLogout()

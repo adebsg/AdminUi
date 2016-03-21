@@ -34,15 +34,48 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-    $menuItems = [
+    
+    $mnu_admin = [
+        ['label' => 'Home', 'url' => ['/site/index']],
+        ['label' => 'Location', 'url' => ['/location/index']],
+        ['label' => 'Tag', 'url' => ['/tag/index']],
+        ['label' => 'Category', 'url' => ['/category/index']],
+        ['label' => 'Merchant', 'url' => ['/merchant/index']],
+        ['label' => 'User', 'url' => ['/user/index']],
+    ];
+    
+    $mnu_petugas = [
         ['label' => 'Home', 'url' => ['/site/index']],
         ['label' => 'Location', 'url' => ['/location/index']],
         ['label' => 'Tag', 'url' => ['/tag/index']],
         ['label' => 'Category', 'url' => ['/category/index']],
         ['label' => 'Merchant', 'url' => ['/merchant/index']],
     ];
+    
+    $mnu_user = [
+        //['label' => 'Home', 'url' => ['/site/index']],
+      //['label' => 'Signup', 'url' => ['/site/signup']],
+//        ['label' => 'Location', 'url' => ['/location/index']],
+//        ['label' => 'Tag', 'url' => ['/tag/index']],
+//        ['label' => 'Category', 'url' => ['/category/index']],
+//        ['label' => 'Merchant', 'url' => ['/merchant/index']],
+    ];
+    
+    
+    
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+        $menuItems = $mnu_user;
+    } else {
+        if (Yii::$app->user->identity->role == '1'){
+            $menuItems = $mnu_admin;
+        }else{
+            $menuItems = $mnu_petugas;
+            
+        }
+    }
+    
+    if (Yii::$app->user->isGuest) {
+        //$menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
