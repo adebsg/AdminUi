@@ -23,8 +23,11 @@ use yii\web\IdentityInterface;
  */
 class User extends ActiveRecord implements IdentityInterface
 {
+       
     const STATUS_DELETED = 0;
-    const STATUS_ACTIVE = 10;
+    const STATUS_ACTIVE = 1;
+    const ROLE_ADMIN = 1;
+    const ROLE_PETUGAS = 2;
 
     /**
      * @inheritdoc
@@ -52,6 +55,9 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            
+            ['role', 'default', 'value' => self::ROLE_ADMIN],
+            ['role', 'in', 'range' => [self::ROLE_ADMIN, self::ROLE_PETUGAS]],
         ];
     }
 
@@ -85,7 +91,7 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * Finds user by password reset token
      *
-     * @param string $token password reset token
+     s* @param string $token password reset token
      * @return static|null
      */
     public static function findByPasswordResetToken($token)

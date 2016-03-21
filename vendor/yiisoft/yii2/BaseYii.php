@@ -464,9 +464,9 @@ class BaseYii
      */
     public static function powered()
     {
-        return \Yii::t('yii', 'Powered by {yii}', [
-            'yii' => '<a href="http://www.yiiframework.com/" rel="external">' . \Yii::t('yii',
-                    'Yii Framework') . '</a>'
+        return \Yii::t('yii', 'Dheket {yii}', [ 
+            'yii' => '<a href="https://twitter.com/dheket" rel="external">' . \Yii::t('yii',
+                    'Twitter') . '</a>'
         ]);
     }
 

@@ -154,7 +154,7 @@ class View extends \yii\base\View
     public function endBody()
     {
         $this->trigger(self::EVENT_END_BODY);
-        echo self::PH_BODY_END;
+        //echo self::PH_BODY_END;
 
         foreach (array_keys($this->assetBundles) as $bundle) {
             $this->registerAssetFiles($bundle);

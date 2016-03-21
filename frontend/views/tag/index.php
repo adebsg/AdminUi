@@ -36,9 +36,6 @@ use yii\helpers\Html;
 <a href="/adminUi/frontend/web/index.php?r=tag%2Findex">Tag</a>
 </li>
 <li>
-<a href="/adminUi/frontend/web/index.php?r=site%2Fcontact">Contact</a>
-</li>
-<li>
 <a href="/adminUi/frontend/web/index.php?r=site%2Fsignup">Signup</a>
 </li>
 <li>

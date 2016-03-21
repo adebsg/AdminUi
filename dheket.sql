@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 29, 2016 at 12:04 AM
+-- Generation Time: Mar 21, 2016 at 03:39 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -188,7 +188,8 @@ CREATE TABLE `merchant` (
 --
 
 INSERT INTO `merchant` (`id_merchant`, `merchant_name`) VALUES
-(0, 'IndoMart');
+(0, 'IndoMart'),
+(1, 'Restoran');
 
 -- --------------------------------------------------------
 
@@ -211,26 +212,21 @@ INSERT INTO `migration` (`version`, `apply_time`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `place`
+-- Table structure for table `tag`
 --
 
-CREATE TABLE `place` (
+CREATE TABLE `tag` (
   `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `place_type` smallint(11) NOT NULL,
-  `status` smallint(6) NOT NULL,
-  `google_place_id` varchar(50) NOT NULL,
-  `created_by` bigint(20) NOT NULL,
-  `created_at` int(11) NOT NULL,
-  `updated_at` int(11) NOT NULL
+  `tag_name` varchar(100) NOT NULL,
+  `category_id` bigint(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `place`
+-- Dumping data for table `tag`
 --
 
-INSERT INTO `place` (`id`, `name`, `place_type`, `status`, `google_place_id`, `created_by`, `created_at`, `updated_at`) VALUES
-(1, 'sepatan', 2, 2, '98666', 26022016, 26022016, 26022016);
+INSERT INTO `tag` (`id`, `tag_name`, `category_id`) VALUES
+(0, 'Hotel', 0);
 
 -- --------------------------------------------------------
 
@@ -240,15 +236,15 @@ INSERT INTO `place` (`id`, `name`, `place_type`, `status`, `google_place_id`, `c
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `first_name` varchar(100) NOT NULL,
-  `last_name` varchar(100) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `auth_key` varchar(32) NOT NULL,
-  `password_hash` varchar(255) NOT NULL,
-  `password_reset_token` varchar(255) DEFAULT NULL,
-  `email` varchar(255) NOT NULL,
+  `first_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `last_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `auth_key` varchar(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `password_hash` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `password_reset_token` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `role` smallint(6) NOT NULL,
-  `status` smallint(6) NOT NULL,
+  `status` smallint(6) NOT NULL DEFAULT '10',
   `created_at` int(11) NOT NULL,
   `updated_at` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -258,8 +254,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `role`, `status`, `created_at`, `updated_at`) VALUES
-(3, 'user', 'user', 'user', 'q5hLcBz3FXgCTTBaFr9T2wj1dI8NE2ud', '$2y$13$owGsSNK6B2O96Kj6ZKjc2OOxntkMCyNQ2NA9Gz2yvTIRdBpc6Ha42', NULL, 'user@gmail.com', 1, 10, 1456367436, 1456367436),
-(7, 'admin', 'admin', 'admin', 'pe4GEZozd28aNXPr3UW-vQIO2VuIMPMg', '$2y$13$T8PZW1LAkSa/zYDw1FYVOu9zb6RszAIGGM.2bwrsNILlCNnx5uzBO', NULL, 'admin@gmail.com', 0, 10, 1456382756, 1456382756);
+(2, 'backend', 'admin', 'admin', '9zWrlXRyjZykI6oefRYaln_IHlPGt4-n', '$2y$13$n658v4kGEB0cmrsJDOXs9eKd2pFVfXLXDt8XXmW2MyeXUPSf96l46', NULL, 'admin@gmail.com', 1, 1, 1457618181, 1457618181),
+(3, 'burhan', 'muhammad', 'burhan', '23GBv5edX2HY2hGzdZIgMPgU1yEFCVx2', '$2y$13$wSNJw9mvSjNu5GW1ftoj6epbw9gC6pamQjs38wib0VIwptcm.XmnW', NULL, 'burhan@gmail.com', 2, 1, 1458548012, 1458548012),
+(4, 'zein', 'muhammad', 'zein', 'vTG4UOGTyYH4OV9lSy9DL3s4Gbhsevit', '$2y$13$4dhcHT/dmF3KiYSP5wenCeXjtsTb3RwvdY7nMnb5Su0S2fuc8tUtW', NULL, 'zein@gmail.com', 2, 1, 1458548114, 1458548114),
+(6, 'husna', 'amiratul', 'husna', 'C3SmDB5l97azQyB9LYdEh4osI_PEk8qG', '$2y$13$Py4pUTM7209LsbzSzpA9QO.SERBm1/1VFOqhRdIdjxof8OtTEe/RO', NULL, 'husna@gmail.com', 1, 1, 1458565044, 1458565044),
+(7, 'dinar', 'mah dinar', 'dinar', 'm8ZDDt9nwMbQWjEZ8M5lN5d-xf0TPtcP', '$2y$13$4.94oDi9EUCnoLMP95wRYOL.S2p5WzPfSP2UYQwaoejsEOLkhIbPG', NULL, 'dinar@gmail.com', 2, 1, 1458565887, 1458565887);
 
 --
 -- Indexes for dumped tables
@@ -290,19 +289,16 @@ ALTER TABLE `migration`
   ADD PRIMARY KEY (`version`);
 
 --
--- Indexes for table `place`
+-- Indexes for table `tag`
 --
-ALTER TABLE `place`
+ALTER TABLE `tag`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `user` (`username`(1)),
-  ADD UNIQUE KEY `password_reset_token` (`password_reset_token`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -317,7 +313,7 @@ ALTER TABLE `location`
 -- AUTO_INCREMENT for table `merchant`
 --
 ALTER TABLE `merchant`
-  MODIFY `id_merchant` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_merchant` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `user`
 --

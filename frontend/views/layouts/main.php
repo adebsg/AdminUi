@@ -36,11 +36,7 @@ AppAsset::register($this);
     ]);
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Location', 'url' => ['/location/index']],
-        ['label' => 'Category', 'url' => ['/category/index']],
-        ['label' => 'Merchant', 'url' => ['/merchant/index']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
+        ['label' => 'Tag', 'url' => ['/tag/index']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
@@ -74,8 +70,8 @@ AppAsset::register($this);
 <footer class="footer">
     <div class="container">
         <p class="pull-left">&copy; Dheket <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-right"><?= Yii::powered() ?>
+        <a href="https://www.facebook.com/dheket">Facebook</a></p>
     </div>
 </footer>
 
