@@ -1,10 +1,13 @@
 <?php
-$params = array_merge(
+$params = array_merge(//
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/../../common/config/params-local.php'),
     require(__DIR__ . '/params.php'),
     require(__DIR__ . '/params-local.php')
 );
+
+//use \yii\web\Request;
+//$baseUrl = str_replace('/web', '', (new Request)->getBaseUrl());
 
 return [
     'id' => 'app-backend',
@@ -28,15 +31,14 @@ return [
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
-        ],
-        /*
+        ],       
         'urlManager' => [
-            'enablePrettyUrl' => true,
+            'enablePrettyUrl' => false,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+        
     ],
     'params' => $params,
 ];
