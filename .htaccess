@@ -4,7 +4,25 @@ IndexIgnore */*
  
 # follow symbolic links
 Options FollowSymlinks
+
 RewriteEngine on
-RewriteRule ^administrator(/.+)?$ backend/web/$1 [L,PT]
-RewriteRule ^(.+)?$ backend/web/$1
-#RewriteRule ^(.+)?$ frontend/web/$1 
+
+
+#RewriteCond %{HTTP_HOST} ^dheket.co.id$
+#RewriteCond %{REQUEST_URI} !^/
+#RewriteCond %{REQUEST_FILENAME} !-f 
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ /$1
+#RewriteCond %{HTTP_HOST} ^dheket.co.id$ 
+
+RewriteRule ^(.+)?$ $1
+
+
+# Deny accessing below extensions
+<Files ~ "(.json|.lock|.git)">
+	Order allow,deny
+	Deny from all
+</Files>
+
+# Deny accessing dot files
+RewriteRule (^\.|/\.) - [F]
