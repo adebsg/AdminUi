@@ -41,13 +41,4 @@ class Profile extends \yii\db\ActiveRecord
             'radius' => Yii::t('app', 'Radius'),
         ];
     }
-
-    /**
-     * @inheritdoc
-     * @return \backend\Queries\ProfileQuery the active query used by this AR class.
-     */
-    public static function find()
-    {
-        return new \backend\Queries\ProfileQuery(get_called_class());
-    }
 }

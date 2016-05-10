@@ -1,12 +1,14 @@
-# prevent directory listings
+#prevent directory listings
 Options -Indexes
 IndexIgnore */*
  
-# follow symbolic links
+#follow symbolic links
 Options FollowSymlinks
 
 RewriteEngine on
 
+RewriteRule ^adminUi/([^/.]+)/([^/.]+)/?$ /adminUi/_index.php?r=$1&$2 
+#RewriteRule ^adminUi/([^/.]+)/([^/.]+)/([^/.]+)/?$ adminUi/index.php?r=$1&$2&$3 [L]
 
 #RewriteCond %{HTTP_HOST} ^dheket.co.id$
 #RewriteCond %{REQUEST_URI} !^/
@@ -15,14 +17,15 @@ RewriteEngine on
 #RewriteRule ^(.*)$ /$1
 #RewriteCond %{HTTP_HOST} ^dheket.co.id$ 
 
+
+
 RewriteRule ^(.+)?$ $1
 
-
-# Deny accessing below extensions
+#Deny accessing below extensions
 <Files ~ "(.json|.lock|.git)">
 	Order allow,deny
 	Deny from all
 </Files>
 
-# Deny accessing dot files
+#Deny accessing dot files
 RewriteRule (^\.|/\.) - [F]

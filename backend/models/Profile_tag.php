@@ -39,19 +39,10 @@ class Profile_tag extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'id_profile' => Yii::t('app', 'Id Profile'),
-            'id_category' => Yii::t('app', 'Id Category'),
+            //'id' => Yii::t('app', 'ID'),
+            'id_profile' => Yii::t('app', 'Radius'),
+            'id_category' => Yii::t('app', 'Category Name'),
             'detail_tag' => Yii::t('app', 'Detail Tag'),
         ];
-    }
-
-    /**
-     * @inheritdoc
-     * @return \backend\Queries\Profile_tagQuery the active query used by this AR class.
-     */
-    public static function find()
-    {
-        return new \backend\Queries\Profile_tagQuery(get_called_class());
     }
 }

@@ -3,8 +3,8 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Location;
 use yii\filters\AccessControl;
+use backend\models\Location;
 use backend\models\LocationSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -17,7 +17,7 @@ class LocationController extends Controller
 {
     public function behaviors()
     {
-        return [
+         return [
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [

@@ -39,18 +39,9 @@ class Profile_detail extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'id_profile' => Yii::t('app', 'Id Profile'),
-            'id_category' => Yii::t('app', 'Id Category'),
-            'id_profile_tag' => Yii::t('app', 'Id Profile Tag'),
+            'id_profile' => Yii::t('app', 'Radius'),
+            'id_category' => Yii::t('app', 'Category Name'),
+            'id_profile_tag' => Yii::t('app', 'Detail Tag'),
         ];
-    }
-
-    /**
-     * @inheritdoc
-     * @return \backend\Queries\Profile_detailQuery the active query used by this AR class.
-     */
-    public static function find()
-    {
-        return new \backend\Queries\Profile_detailQuery(get_called_class());
     }
 }

@@ -3,8 +3,8 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Category;
 use yii\filters\AccessControl;
+use backend\models\Category;
 use backend\models\CategorySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -17,7 +17,7 @@ class CategoryController extends Controller
 {
     public function behaviors()
     {
-        return [
+         return [
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [

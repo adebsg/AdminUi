@@ -9,7 +9,9 @@ use Yii;
  *
  * @property string $id_category
  * @property string $category_name
- * @property string $category_id
+ * @property string $parent
+ * @property string $id_cat_here
+ * @property string $icon
  */
 class Category extends \yii\db\ActiveRecord
 {
@@ -27,9 +29,11 @@ class Category extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_category', 'category_name'], 'required'],
-            [['id_category', 'category_id'], 'integer'],
-            [['category_name'], 'string', 'max' => 30]
+            [['category_name'], 'required'],
+            [['parent'], 'integer'],
+            [['icon'], 'string'],
+            [['category_name'], 'string', 'max' => 30],
+            [['id_cat_here'], 'string', 'max' => 255]
         ];
     }
 
@@ -39,18 +43,11 @@ class Category extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_category' => 'Id Category',
-            'category_name' => 'Category Name',
-            'category_id' => 'Category ID',
+            //'id_category' => Yii::t('app', 'Id Category'),
+            'category_name' => Yii::t('app', 'Category Name'),
+            'parent' => Yii::t('app', 'Parent'),
+            'id_cat_here' => Yii::t('app', 'Title'),
+            'icon' => Yii::t('app', 'Icon'),
         ];
-    }
-
-    /**
-     * @inheritdoc
-     * @return \frontend\Queries\CategoryQuery the active query used by this AR class.
-     */
-    public static function find()
-    {
-        return new \backend\Queries\CategoryQuery(get_called_class());
     }
 }

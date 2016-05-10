@@ -4,10 +4,10 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\Merchant */
+/* @var $model backend\models\Merchant */
 
-$this->title = 'Create Merchant';
-$this->params['breadcrumbs'][] = ['label' => 'Merchants', 'url' => ['index']];
+$this->title = Yii::t('app', 'Create Merchant');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Merchants'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="merchant-create">

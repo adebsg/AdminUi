@@ -3,8 +3,8 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Tag;
 use yii\filters\AccessControl;
+use backend\models\Tag;
 use backend\models\TagSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -17,7 +17,7 @@ class TagController extends Controller
 {
     public function behaviors()
     {
-        return [
+         return [
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [

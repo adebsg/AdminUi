@@ -4,10 +4,10 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\Location */
+/* @var $model backend\models\Location */
 
 $this->title = $model->id_location;
-$this->params['breadcrumbs'][] = ['label' => 'Locations', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Locations'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="location-view">
@@ -15,11 +15,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id_location], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id_location], [
+        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id_location], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Cancel', ['/location/index'], ['class'=>'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id_location], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
                 'method' => 'post',
             ],
         ]) ?>
@@ -28,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id_location',
+            //'id_location',
             'location_name',
             'location_address',
             'latitude',
@@ -37,6 +38,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'phone',
             'isPromo',
             'photo',
+            'id_location_here',
+            'description',
+            'location_tag',
         ],
     ]) ?>
 

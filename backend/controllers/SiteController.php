@@ -9,6 +9,8 @@ use backend\models\PasswordResetRequestForm;
 use backend\models\ResetPasswordForm;
 use backend\models\SignupForm;
 use yii\filters\VerbFilter;
+use backend\models\Cat_here;
+use backend\models\Cat_hereSearch;
 
 /**
  * Site controller
@@ -61,8 +63,7 @@ class SiteController extends Controller
     
     public function actionIndex()
     {
-       
-       
+        
        if (!\Yii::$app->user->isGuest) {
            return $this->render('index');
            
@@ -91,7 +92,7 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+        	//return $this->goBack();
         } else {
             return $this->render('login', [
                 'model' => $model,
@@ -120,5 +121,60 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+     // category
+     public function actionCategory()
+    {
+        return $this->render('category');
+    }
+    //Cat_here
+      public function actionCat_here()
+    {
+        return $this->render('cat_here');
+    }
+    //Customer
+      public function actionCustomer()
+    {
+        return $this->render('customer');
+    }
+    //Loc_here
+      public function actionLoc_here()
+    {
+        return $this->render('loc_here');
+    }
+     //Loc_here
+      public function actionLoc_here_detail()
+    {
+        return $this->render('loc_here_detail');
+    }
+     //Location
+      public function actionLocation()
+    {
+        return $this->render('location');
+    }
+     //merchant
+      public function actionMerchant()
+    {
+        return $this->render('merchant');
+    }
+    //profile
+      public function actionProfile()
+    {
+        return $this->render('profile');
+    }
+    //profile detail
+      public function actionProfile_detail()
+    {
+        return $this->render('profile_detail');
+    }
+    //profile_tag
+      public function actionProfile_tag()
+    {
+        return $this->render('profile_tag');
+    }
+    //tag
+      public function actionTag()
+    {
+        return $this->render('tag');
     }
 }

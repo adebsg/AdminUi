@@ -36,7 +36,7 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['first_name', 'last_name', 'username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
+            [['first_name', 'last_name', 'username', 'auth_key', 'password_hash', 'email', 'role', 'created_at', 'updated_at'], 'required'],
             [['role', 'status', 'created_at', 'updated_at'], 'integer'],
             [['first_name', 'last_name'], 'string', 'max' => 100],
             [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
@@ -63,14 +63,5 @@ class User extends \yii\db\ActiveRecord
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
         ];
-    }
-
-    /**
-     * @inheritdoc
-     * @return \frontend\Queries\UserQuery the active query used by this AR class.
-     */
-    public static function find()
-    {
-        return new \backend\Queries\UserQuery(get_called_class());
     }
 }

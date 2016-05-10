@@ -3,12 +3,14 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\Location */
+/* @var $model backend\models\Location */
 
-$this->title = 'Update Location: ' . ' ' . $model->id_location;
-$this->params['breadcrumbs'][] = ['label' => 'Locations', 'url' => ['index']];
+$this->title = Yii::t('app', 'Update {modelClass}: ', [
+    'modelClass' => 'Location',
+]) . ' ' . $model->id_location;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Locations'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id_location, 'url' => ['view', 'id' => $model->id_location]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 <div class="location-update">
 

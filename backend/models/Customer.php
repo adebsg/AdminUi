@@ -41,21 +41,12 @@ class Customer extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'username' => Yii::t('app', 'Username'),
-            'password' => Yii::t('app', 'Password'),
+            //'id' => Yii::t('app', 'ID'),
+            'username' => Yii::t('app', 'Name'),
+            //'password' => Yii::t('app', 'Password'),
             'email' => Yii::t('app', 'Email'),
-            'facebook_id' => Yii::t('app', 'Facebook ID'),
-            'id_profile' => Yii::t('app', 'Id Profile'),
+            //'facebook_id' => Yii::t('app', 'Facebook ID'),
+            'id_profile' => Yii::t('app', 'Radius'),
         ];
-    }
-
-    /**
-     * @inheritdoc
-     * @return \backend\Queries\CustomerQuery the active query used by this AR class.
-     */
-    public static function find()
-    {
-        return new \backend\Queries\CustomerQuery(get_called_class());
     }
 }

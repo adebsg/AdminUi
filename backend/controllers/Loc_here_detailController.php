@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
+use yii\filters\AccessControl;
 use backend\models\Loc_here_detail;
 use backend\models\Loc_here_detailSearch;
 use yii\web\Controller;
@@ -16,13 +17,23 @@ class Loc_here_detailController extends Controller
 {
     public function behaviors()
     {
-        return [
-            'verbs' => [
+         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['index', 'create','view','update','delete'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
+            /*'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['post'],
                 ],
-            ],
+            ],*/
         ];
     }
 

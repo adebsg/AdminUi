@@ -36,17 +36,8 @@ class Loc_here_detail extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'id_category' => Yii::t('app', 'Id Category'),
+            //'id' => Yii::t('app', 'ID'),
+            'id_category' => Yii::t('app', 'Category Name'),
         ];
-    }
-
-    /**
-     * @inheritdoc
-     * @return \backend\Queries\Loc_here_detailQuery the active query used by this AR class.
-     */
-    public static function find()
-    {
-        return new \backend\Queries\Loc_here_detailQuery(get_called_class());
     }
 }

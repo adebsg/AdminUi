@@ -52,13 +52,4 @@ class Cat_here extends \yii\db\ActiveRecord
             'within' => Yii::t('app', 'Within'),
         ];
     }
-
-    /**
-     * @inheritdoc
-     * @return \backend\Queries\Cat_hereQuery the active query used by this AR class.
-     */
-    public static function find()
-    {
-        return new \backend\Queries\Cat_hereQuery(get_called_class());
-    }
 }

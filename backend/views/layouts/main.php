@@ -28,7 +28,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'Dheket',
+        //'brandLabel' => 'Dheket',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -36,29 +36,39 @@ AppAsset::register($this);
     ]);
     
     $mnu_admin = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'Location', 'url' => ['/location/index']],
-        ['label' => 'Tag', 'url' => ['/tag/index']],
+        ['label' => 'Home', 'url' => ['/site/index']], 
         ['label' => 'Category', 'url' => ['/category/index']],
+        ['label' => 'Cat_here', 'url' => ['/cat_here/index']],
+        ['label' => 'customer', 'url' => ['/customer/index']],
+        ['label' => 'Location', 'url' => ['/location/index']],
+        ['label' => 'Loc Here', 'url' => ['/loc_here/index']],
+        ['label' => 'Loc Here Detail', 'url' => ['/loc_here_detail/index']],
         ['label' => 'Merchant', 'url' => ['/merchant/index']],
+        ['label' => 'Profile', 'url' => ['/profile/index']],
+        ['label' => 'Profile Detail', 'url' => ['/profile_detail/index']],
+        ['label' => 'Profile Tag', 'url' => ['/profile_tag/index']],
+        ['label' => 'Tag', 'url' => ['/tag/index']],
         ['label' => 'User', 'url' => ['/user/index']],
     ];
     
     $mnu_petugas = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'Location', 'url' => ['/location/index']],
-        ['label' => 'Tag', 'url' => ['/tag/index']],
-        ['label' => 'Category', 'url' => ['/category/index']],
-        ['label' => 'Merchant', 'url' => ['/merchant/index']],
+       ['label' => 'Home', 'url' => ['/site/index']], 
+        ['label' => 'Cat Here', 'url' => ['/site/category']],
+        ['label' => 'Category', 'url' => ['/site/cat_here']],
+        ['label' => 'customer', 'url' => ['/site/customer']],
+        ['label' => 'Loc Here', 'url' => ['/site/loc_here']],
+        ['label' => 'Loc Here Detail', 'url' => ['/site/loc_here_detail']],
+        ['label' => 'Location', 'url' => ['/site/location']],
+        ['label' => 'Merchant', 'url' => ['/site/merchant']],
+        ['label' => 'Proflie', 'url' => ['/site/profile']],
+        ['label' => 'Profile Detail', 'url' => ['/site/profile_detail']],
+        ['label' => 'Profile Tag', 'url' => ['/site/profile_tag']],
+        ['label' => 'Tag', 'url' => ['/site/tag']],
     ];
     
     $mnu_user = [
         //['label' => 'Home', 'url' => ['/site/index']],
       //['label' => 'Signup', 'url' => ['/site/signup']],
-//        ['label' => 'Location', 'url' => ['/location/index']],
-//        ['label' => 'Tag', 'url' => ['/tag/index']],
-//        ['label' => 'Category', 'url' => ['/category/index']],
-//        ['label' => 'Merchant', 'url' => ['/merchant/index']],
     ];
     
     

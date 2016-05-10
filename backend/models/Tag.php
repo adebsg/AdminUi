@@ -9,7 +9,7 @@ use Yii;
  *
  * @property integer $id
  * @property string $tag_name
- * @property string $category_id
+ * @property integer $id_category
  */
 class Tag extends \yii\db\ActiveRecord
 {
@@ -27,9 +27,8 @@ class Tag extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'tag_name', 'category_id'], 'required'],
-            [['id', 'category_id'], 'integer'],
-            [['tag_name'], 'string', 'max' => 100]
+            [['id_category'], 'integer'],
+            [['tag_name'], 'string', 'max' => 255]
         ];
     }
 
@@ -39,18 +38,9 @@ class Tag extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'tag_name' => 'Tag Name',
-            'category_id' => 'Category ID',
+            //'id' => Yii::t('app', 'ID'),
+            'tag_name' => Yii::t('app', 'Tag Name'),
+            'id_category' => Yii::t('app', 'Category Name'),
         ];
-    }
-
-    /**
-     * @inheritdoc
-     * @return \frontend\Queries\TagQuery the active query used by this AR class.
-     */
-    public static function find()
-    {
-        return new \backend\Queries\TagQuery(get_called_class());
     }
 }

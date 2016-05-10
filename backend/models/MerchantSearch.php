@@ -8,7 +8,7 @@ use yii\data\ActiveDataProvider;
 use backend\models\Merchant;
 
 /**
- * MerchantSearch represents the model behind the search form about `frontend\models\Merchant`.
+ * MerchantSearch represents the model behind the search form about `backend\models\Merchant`.
  */
 class MerchantSearch extends Merchant
 {

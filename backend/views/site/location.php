@@ -5,7 +5,7 @@
 echo "<table class='table table-striped table-bordered'>";
 echo "<tr><td width='100px'>Location Name</td><td>Location Address</td>
 	<td>Latitude</td><td>Longitude</td><td>Phone</td><td>IsPromo</td>
-	<td>Description</td><td>Location Tag</td>
+	<td>Photo</td><td>Location Here</td><td>Description</td><td>Location Tag</td>
     <td>Category Name</td></tr>";
 
 class TableRows extends RecursiveIteratorIterator { 
@@ -36,7 +36,8 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $stmt = $conn->prepare("SELECT location.location_name,location.location_address,
     location.latitude,location.longitude,location.phone,
-    location.isPromo,location.description,location.location_tag,category.category_name
+    location.isPromo,location.photo,location.id_location_here,
+    location.description,location.location_tag,category.category_name
     FROM location INNER JOIN category ON location.category_id = category.id_category"); 
     $stmt->execute();
 

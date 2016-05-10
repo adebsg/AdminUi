@@ -37,17 +37,8 @@ class Merchant extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_merchant' => 'Id Merchant',
-            'merchant_name' => 'Merchant Name',
+            //'id_merchant' => Yii::t('app', 'Id Merchant'),
+            'merchant_name' => Yii::t('app', 'Merchant Name'),
         ];
-    }
-
-    /**
-     * @inheritdoc
-     * @return \frontend\Queries\MerchantQuery the active query used by this AR class.
-     */
-    public static function find()
-    {
-        return new \backend\Queries\MerchantQuery(get_called_class());
     }
 }

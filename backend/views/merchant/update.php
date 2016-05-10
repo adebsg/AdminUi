@@ -3,12 +3,14 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\Merchant */
+/* @var $model backend\models\Merchant */
 
-$this->title = 'Update Merchant: ' . ' ' . $model->id_merchant;
-$this->params['breadcrumbs'][] = ['label' => 'Merchants', 'url' => ['index']];
+$this->title = Yii::t('app', 'Update {modelClass}: ', [
+    'modelClass' => 'Merchant',
+]) . ' ' . $model->id_merchant;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Merchants'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id_merchant, 'url' => ['view', 'id' => $model->id_merchant]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 <div class="merchant-update">
 

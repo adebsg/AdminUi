@@ -16,6 +16,9 @@ use Yii;
  * @property string $phone
  * @property integer $isPromo
  * @property resource $photo
+ * @property string $id_location_here
+ * @property string $description
+ * @property string $location_tag
  */
 class Location extends \yii\db\ActiveRecord
 {
@@ -39,7 +42,9 @@ class Location extends \yii\db\ActiveRecord
             [['photo'], 'string'],
             [['location_name'], 'string', 'max' => 250],
             [['location_address'], 'string', 'max' => 500],
-            [['phone'], 'string', 'max' => 20]
+            [['phone'], 'string', 'max' => 20],
+            [['id_location_here'], 'string', 'max' => 255],
+            [['description', 'location_tag'], 'string', 'max' => 1000]
         ];
     }
 
@@ -49,24 +54,18 @@ class Location extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_location' => 'Id Location',
-            'location_name' => 'Location Name',
-            'location_address' => 'Location Address',
-            'latitude' => 'Latitude',
-            'longitude' => 'Longitude',
-            'category_id' => 'Category ID',
-            'phone' => 'Phone',
-            'isPromo' => 'Is Promo',
-            'photo' => 'Photo',
+            //'id_location' => Yii::t('app', 'Id Location'),
+            'location_name' => Yii::t('app', 'Location Name'),
+            'location_address' => Yii::t('app', 'Location Address'),
+            'latitude' => Yii::t('app', 'Latitude'),
+            'longitude' => Yii::t('app', 'Longitude'),
+            'category_id' => Yii::t('app', 'Category Name'),
+            'phone' => Yii::t('app', 'Phone'),
+            'isPromo' => Yii::t('app', 'Is Promo'),
+            'photo' => Yii::t('app', 'Photo'),
+            'id_location_here' => Yii::t('app', 'Title'),
+            'description' => Yii::t('app', 'Description'),
+            'location_tag' => Yii::t('app', 'Location Tag'),
         ];
-    }
-
-    /**
-     * @inheritdoc
-     * @return \frontend\Queries\LocationQuery the active query used by this AR class.
-     */
-    public static function find()
-    {
-        return new \backend\Queries\LocationQuery(get_called_class());
     }
 }

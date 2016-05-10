@@ -45,13 +45,4 @@ class Loc_here extends \yii\db\ActiveRecord
             'vicinity' => Yii::t('app', 'Vicinity'),
         ];
     }
-
-    /**
-     * @inheritdoc
-     * @return \backend\Queries\Loc_hereQuery the active query used by this AR class.
-     */
-    public static function find()
-    {
-        return new \backend\Queries\Loc_hereQuery(get_called_class());
-    }
 }

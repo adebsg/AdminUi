@@ -8,7 +8,7 @@ use yii\data\ActiveDataProvider;
 use backend\models\Location;
 
 /**
- * LocationSearch represents the model behind the search form about `frontend\models\Location`.
+ * LocationSearch represents the model behind the search form about `backend\models\Location`.
  */
 class LocationSearch extends Location
 {
@@ -19,7 +19,7 @@ class LocationSearch extends Location
     {
         return [
             [['id_location', 'category_id', 'isPromo'], 'integer'],
-            [['location_name', 'location_address', 'phone', 'photo'], 'safe'],
+            [['location_name', 'location_address', 'phone', 'photo', 'id_location_here', 'description', 'location_tag'], 'safe'],
             [['latitude', 'longitude'], 'number'],
         ];
     }
@@ -67,7 +67,10 @@ class LocationSearch extends Location
         $query->andFilterWhere(['like', 'location_name', $this->location_name])
             ->andFilterWhere(['like', 'location_address', $this->location_address])
             ->andFilterWhere(['like', 'phone', $this->phone])
-            ->andFilterWhere(['like', 'photo', $this->photo]);
+            ->andFilterWhere(['like', 'photo', $this->photo])
+            ->andFilterWhere(['like', 'id_location_here', $this->id_location_here])
+            ->andFilterWhere(['like', 'description', $this->description])
+            ->andFilterWhere(['like', 'location_tag', $this->location_tag]);
 
         return $dataProvider;
     }

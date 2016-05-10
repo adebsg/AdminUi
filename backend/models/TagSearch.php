@@ -8,7 +8,7 @@ use yii\data\ActiveDataProvider;
 use backend\models\Tag;
 
 /**
- * TagSearch represents the model behind the search form about `frontend\models\Tag`.
+ * TagSearch represents the model behind the search form about `backend\models\Tag`.
  */
 class TagSearch extends Tag
 {
@@ -18,7 +18,7 @@ class TagSearch extends Tag
     public function rules()
     {
         return [
-            [['id', 'category_id'], 'integer'],
+            [['id', 'id_category'], 'integer'],
             [['tag_name'], 'safe'],
         ];
     }
@@ -57,7 +57,7 @@ class TagSearch extends Tag
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'category_id' => $this->category_id,
+            'id_category' => $this->id_category,
         ]);
 
         $query->andFilterWhere(['like', 'tag_name', $this->tag_name]);

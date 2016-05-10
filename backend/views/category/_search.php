@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\CategorySearch */
+/* @var $model backend\models\CategorySearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -19,11 +19,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'category_name') ?>
 
-    <?= $form->field($model, 'category_id') ?>
+    <?= $form->field($model, 'parent') ?>
+
+    <?= $form->field($model, 'id_cat_here') ?>
+
+    <?= $form->field($model, 'icon') ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

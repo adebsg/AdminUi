@@ -8,7 +8,7 @@ use yii\data\ActiveDataProvider;
 use backend\models\Category;
 
 /**
- * CategorySearch represents the model behind the search form about `frontend\models\Category`.
+ * CategorySearch represents the model behind the search form about `backend\models\Category`.
  */
 class CategorySearch extends Category
 {
@@ -18,8 +18,8 @@ class CategorySearch extends Category
     public function rules()
     {
         return [
-            [['id_category', 'category_id'], 'integer'],
-            [['category_name'], 'safe'],
+            [['id_category', 'parent'], 'integer'],
+            [['category_name', 'id_cat_here', 'icon'], 'safe'],
         ];
     }
 
@@ -57,10 +57,12 @@ class CategorySearch extends Category
 
         $query->andFilterWhere([
             'id_category' => $this->id_category,
-            'category_id' => $this->category_id,
+            'parent' => $this->parent,
         ]);
 
-        $query->andFilterWhere(['like', 'category_name', $this->category_name]);
+        $query->andFilterWhere(['like', 'category_name', $this->category_name])
+            ->andFilterWhere(['like', 'id_cat_here', $this->id_cat_here])
+            ->andFilterWhere(['like', 'icon', $this->icon]);
 
         return $dataProvider;
     }
