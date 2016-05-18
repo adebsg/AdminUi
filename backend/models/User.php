@@ -40,7 +40,13 @@ class User extends \yii\db\ActiveRecord
             [['role', 'status', 'created_at', 'updated_at'], 'integer'],
             [['first_name', 'last_name'], 'string', 'max' => 100],
             [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
-            [['auth_key'], 'string', 'max' => 32]
+            [['auth_key'], 'string', 'max' => 32],
+            //field2 standar untuk semua model
+            ['row_status','default','value'=>1,'when' => function($model){ return $model->isNewRecord;}],
+            ['created_date','default','value'=> function ($model, $attribute) {return date('Y-m-d H:i:s');},'when' => function($model){ return $model->isNewRecord;}],
+            ['created_by','default','value'=>\Yii::$app->user->identity->id,'when' => function($model){ return $model->isNewRecord;}],
+            ['modified_date','default','value'=> function ($model, $attribute) {return date('Y-m-d H:i:s');},'when' => function($model){ return !$model->isNewRecord;}],
+            ['modified_by','default','value'=>\Yii::$app->user->identity->id,'when' => function($model){ return !$model->isNewRecord;}],
         ];
     }
 

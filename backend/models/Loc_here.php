@@ -29,7 +29,13 @@ class Loc_here extends \yii\db\ActiveRecord
     {
         return [
             [['id'], 'required'],
-            [['id', 'title', 'position', 'vicinity'], 'string', 'max' => 255]
+            [['id', 'title', 'position', 'vicinity'], 'string', 'max' => 255],
+            //field2 standar untuk semua model
+            ['row_status','default','value'=>1,'when' => function($model){ return $model->isNewRecord;}],
+            ['created_date','default','value'=> function ($model, $attribute) {return date('Y-m-d H:i:s');},'when' => function($model){ return $model->isNewRecord;}],
+            ['created_by','default','value'=>\Yii::$app->user->identity->id,'when' => function($model){ return $model->isNewRecord;}],
+            ['modified_date','default','value'=> function ($model, $attribute) {return date('Y-m-d H:i:s');},'when' => function($model){ return !$model->isNewRecord;}],
+            ['modified_by','default','value'=>\Yii::$app->user->identity->id,'when' => function($model){ return !$model->isNewRecord;}],
         ];
     }
 

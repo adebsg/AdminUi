@@ -58,6 +58,13 @@ class User extends ActiveRecord implements IdentityInterface
             
             ['role', 'default', 'value' => self::ROLE_ADMIN],
             ['role', 'in', 'range' => [self::ROLE_ADMIN, self::ROLE_PETUGAS]],
+            
+            //field2 standar untuk semua model
+            ['row_status','default','value'=>1,'when' => function($model){ return $model->isNewRecord;}],            
+            ['created_date','default','value'=> function ($model, $attribute) {return date('Y-m-d H:i:s');},'when' => function($model){ return $model->isNewRecord;}],
+            ['created_by','default','value'=>\Yii::$app->user->identity->id,'when' => function($model){ return $model->isNewRecord;}],
+            ['modified_date','default','value'=> function ($model, $attribute) {return date('Y-m-d H:i:s');},'when' => function($model){ return !$model->isNewRecord;}],
+            ['modified_by','default','value'=>\Yii::$app->user->identity->id,'when' => function($model){ return !$model->isNewRecord;}],
         ];
     }
 
