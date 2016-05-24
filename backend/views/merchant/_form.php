@@ -14,10 +14,10 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <!--<?= $form->field($model, 'merchant_name')->textInput(['maxlength' => true]) ?>-->
-    <?= $form->field($model, 'merchant_name')->dropDownList(
+    <?= $form->field($model, 'merchant_name')->textInput(['maxlength' => true]) ?>
+    <!--<?= $form->field($model, 'merchant_name')->dropDownList(
         ArrayHelper::map(Merchant::find()->all(),'id_merchant', 'merchant_name'),
-        ['prompt'=>'Pilih Merchant Name'])?>
+        ['prompt'=>'Pilih Merchant Name'])?>-->
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

@@ -12,16 +12,18 @@ use backend\models\Profile_detail;
  */
 class Profile_detailSearch extends Profile_detail
 {
+	public $category;
+	
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id', 'id_profile', 'id_category', 'id_profile_tag'], 'integer'],
+            [['id', 'id_profile', 'category', 'id_profile_tag'], 'integer'],
         ];
     }
-
+   
     /**
      * @inheritdoc
      */
@@ -42,10 +44,20 @@ class Profile_detailSearch extends Profile_detail
     {
         $query = Profile_detail::find();
 
+        $query->joinWith(['category']);
+        
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
-
+        
+        // Lets do the same with country now
+        $dataProvider->sort->attributes['category'] = [
+        	'asc' => ['category.category_name' => SORT_ASC],
+        	'desc' => ['category.category_name' => SORT_DESC],
+        ];
+        
+        //$dataProvider->sort = [ 'defaultOrder' => [ 'tbl_city.name' => SORT_ASC, ] ];
+        
         $this->load($params);
 
         if (!$this->validate()) {
@@ -61,6 +73,8 @@ class Profile_detailSearch extends Profile_detail
             'id_profile_tag' => $this->id_profile_tag,
         ]);
 
+        $query->andFilterWhere(['like', 'category.category_name', $this->category]);
+        
         return $dataProvider;
     }
 }

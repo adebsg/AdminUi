@@ -16,45 +16,45 @@ use backend\models\Loc_here;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <!--<?= $form->field($model, 'location_name')->textInput(['maxlength' => true]) ?>-->
-    <?= $form->field($model, 'location_name')->dropDownList(
+    <?= $form->field($model, 'location_name')->textInput(['maxlength' => true]) ?>
+    <!--<?= $form->field($model, 'location_name')->dropDownList(
         ArrayHelper::map(Location::find()->all(),'id_location', 'location_name'),
-        ['prompt'=>'Pilih Location Name'])?>
+        ['prompt'=>'Pilih Location Name'])?>-->
 
-    <!--<?= $form->field($model, 'location_address')->textInput(['maxlength' => true]) ?>-->
-    <?= $form->field($model, 'location_address')->dropDownList(
+    <?= $form->field($model, 'location_address')->textInput(['maxlength' => true]) ?>
+    <!--<?= $form->field($model, 'location_address')->dropDownList(
         ArrayHelper::map(Location::find()->all(),'id_location', 'location_address'),
-        ['prompt'=>'Pilih Location Address'])?>
+        ['prompt'=>'Pilih Location Address'])?>-->
 
-    <!--<?= $form->field($model, 'latitude')->textInput() ?>-->
-    <?= $form->field($model, 'latitude')->dropDownList(
+    <?= $form->field($model, 'latitude')->textInput() ?>
+    <!--<?= $form->field($model, 'latitude')->dropDownList(
         ArrayHelper::map(Location::find()->all(),'id_location', 'latitude'),
-        ['prompt'=>'Pilih Latitude'])?>
+        ['prompt'=>'Pilih Latitude'])?>-->
 
-    <!--<?= $form->field($model, 'longitude')->textInput() ?>-->
-    <?= $form->field($model, 'longitude')->dropDownList(
+    <?= $form->field($model, 'longitude')->textInput() ?>
+    <!--<?= $form->field($model, 'longitude')->dropDownList(
         ArrayHelper::map(Location::find()->all(),'id_location', 'longitude'),
-        ['prompt'=>'Pilih Longitude'])?>
+        ['prompt'=>'Pilih Longitude'])?>-->
 
     <!--<?= $form->field($model, 'category_id')->textInput() ?>-->
     <?= $form->field($model, 'category_id')->dropDownList(
         ArrayHelper::map(Category::find()->all(),'id_category', 'category_name'),
         ['prompt'=>'Pilih Category Name'])?>
 
-    <!--<?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>-->
-    <?= $form->field($model, 'phone')->dropDownList(
+    <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
+    <!--<?= $form->field($model, 'phone')->dropDownList(
         ArrayHelper::map(Location::find()->all(),'id_location', 'phone'),
-        ['prompt'=>'Pilih Phone'])?>
+        ['prompt'=>'Pilih Phone'])?>-->
 
     <!--<?= $form->field($model, 'isPromo')->textInput() ?>-->
     <?= $form->field($model, 'isPromo')->dropDownList(
-        ArrayHelper::map(Location::find()->all(),'id_location', 'isPromo'),
+        ['1' => 'Yes', '0' => 'No'],
         ['prompt'=>'Pilih Promo'])?>
 
-    <!--<?= $form->field($model, 'photo')->textInput() ?>-->
-    <?= $form->field($model, 'photo')->dropDownList(
+    <?= $form->field($model, 'photo')->textInput() ?>
+    <!--<?= $form->field($model, 'photo')->dropDownList(
         ArrayHelper::map(Location::find()->all(),'id_location', 'photo'),
-        ['prompt'=>'Pilih Photo'])?>
+        ['prompt'=>'Pilih Photo'])?>-->
 
     <!--<?= $form->field($model, 'id_location_here')->textInput(['maxlength' => true]) ?>-->
     <?= $form->field($model, 'id_location_here')->dropDownList(

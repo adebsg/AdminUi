@@ -2,7 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-
+use yii\helpers\ArrayHelper;
+use backend\models\Category;
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\Profile_detailSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -27,8 +28,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
             //'id',
             'id_profile',
-            'id_category',
-            'id_profile_tag',
+			[	
+				'attribute'=>'category',				
+				'value' => 'category.category_name',
+			],
+ 	        'id_profile_tag',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

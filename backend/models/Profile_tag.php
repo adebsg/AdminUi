@@ -40,6 +40,14 @@ class Profile_tag extends \yii\db\ActiveRecord
     }
 
     /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCategory()
+    {
+    	return $this->hasOne(Category::className(), ['id_category' => 'id_category']);
+    }
+    
+    /**
      * @inheritdoc
      */
     public function attributeLabels()

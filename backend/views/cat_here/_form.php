@@ -16,23 +16,23 @@ use backend\models\Cat_here;
 
     <!--<?= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>-->
 
-    <!--<?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>-->
-    <?= $form->field($model, 'title')->dropDownList(
+    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+    <!--<?= $form->field($model, 'title')->dropDownList(
         ArrayHelper::map(Cat_here::find()->all(),'id', 'title'),
-        ['prompt'=>'Pilih Title'])?>
+        ['prompt'=>'Pilih Title'])?>-->
 
-    <?= $form->field($model, 'icon')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'icon')->textarea(['rows' => 3]) ?>
 
-    <!--<?= $form->field($model, 'type')->textInput(['maxlength' => true]) ?>-->
-    <?= $form->field($model, 'type')->dropDownList(
+    <?= $form->field($model, 'type')->textInput(['maxlength' => true]) ?>
+    <!--<?= $form->field($model, 'type')->dropDownList(
         ArrayHelper::map(Cat_here::find()->all(),'id', 'title'),
-        ['prompt'=>'Pilih Type'])?>
+        ['prompt'=>'Pilih Type'])?>-->
 
-    <?= $form->field($model, 'href')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'href')->textarea(['rows' => 3]) ?>
 
     <!--<?= $form->field($model, 'system')->textInput(['maxlength' => true]) ?>-->
 
-    <!--<?= $form->field($model, 'within')->textarea(['rows' => 6]) ?>-->
+    <!--<?= $form->field($model, 'within')->textarea(['rows' => 3]) ?>-->
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

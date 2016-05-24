@@ -39,6 +39,7 @@ class Location extends \yii\db\ActiveRecord
             [['latitude', 'longitude'], 'required'],
             [['latitude', 'longitude'], 'number'],
             [['category_id', 'isPromo'], 'integer'],
+            ['isPromo','default','value'=>0],
             [['photo'], 'string'],
             [['location_name'], 'string', 'max' => 250],
             [['location_address'], 'string', 'max' => 500],

@@ -50,4 +50,14 @@ class Profile_detail extends \yii\db\ActiveRecord
             'id_profile_tag' => Yii::t('app', 'Detail Tag'),
         ];
     }
+    
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCategory()
+    {
+    	return $this->hasOne(Category::className(), ['id_category' => 'id_category']);
+    }
+    
+    
 }

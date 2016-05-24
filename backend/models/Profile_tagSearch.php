@@ -18,7 +18,7 @@ class Profile_tagSearch extends Profile_tag
     public function rules()
     {
         return [
-            [['id', 'id_profile', 'id_category'], 'integer'],
+            [['id', 'id_profile', 'category'], 'integer'],
             [['detail_tag'], 'safe'],
         ];
     }
@@ -43,10 +43,18 @@ class Profile_tagSearch extends Profile_tag
     {
         $query = Profile_tag::find();
 
+        $query->joinWith(['category']);
+        
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
 
+        // Lets do the same with country now
+        $dataProvider->sort->attributes['category'] = [
+        	'asc' => ['category.category_name' => SORT_ASC],
+        	'desc' => ['category.category_name' => SORT_DESC],
+        ];
+        
         $this->load($params);
 
         if (!$this->validate()) {
@@ -62,7 +70,9 @@ class Profile_tagSearch extends Profile_tag
         ]);
 
         $query->andFilterWhere(['like', 'detail_tag', $this->detail_tag]);
-
+		
+        $query->andFilterWhere(['like', 'category.category_name', $this->category]);
+        
         return $dataProvider;
     }
 }

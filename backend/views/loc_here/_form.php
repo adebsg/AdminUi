@@ -16,20 +16,20 @@ use backend\models\Loc_here;
 
     <!--<?= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>-->
 
-    <!--<?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>-->
-    <?= $form->field($model, 'title')->dropDownList(
+    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+    <!--<?= $form->field($model, 'title')->dropDownList(
         ArrayHelper::map(Loc_here::find()->all(),'id', 'title'),
-        ['prompt'=>'Pilih Title'])?>
+        ['prompt'=>'Pilih Title'])?>-->
 
-    <!--<?= $form->field($model, 'position')->textInput(['maxlength' => true]) ?>-->
-    <?= $form->field($model, 'position')->dropDownList(
+    <?= $form->field($model, 'position')->textInput(['maxlength' => true]) ?>
+    <!--<?= $form->field($model, 'position')->dropDownList(
         ArrayHelper::map(Loc_here::find()->all(),'id', 'title'),
-        ['prompt'=>'Pilih Position'])?>
+        ['prompt'=>'Pilih Position'])?>-->
 
-    <!--<?= $form->field($model, 'vicinity')->textInput(['maxlength' => true]) ?>-->
-    <?= $form->field($model, 'vicinity')->dropDownList(
+    <?= $form->field($model, 'vicinity')->textInput(['maxlength' => true]) ?>
+    <!--<?= $form->field($model, 'vicinity')->dropDownList(
         ArrayHelper::map(Loc_here::find()->all(),'id', 'title'),
-        ['prompt'=>'Pilih Vicinity'])?>
+        ['prompt'=>'Pilih Vicinity'])?>-->
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

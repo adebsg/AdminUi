@@ -15,10 +15,10 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <!--<?= $form->field($model, 'tag_name')->textInput(['maxlength' => true]) ?>-->
-    <?= $form->field($model, 'tag_name')->dropDownList(
+    <?= $form->field($model, 'tag_name')->textInput(['maxlength' => true]) ?>
+    <!--<?= $form->field($model, 'tag_name')->dropDownList(
         ArrayHelper::map(Tag::find()->all(),'id', 'tag_name'),
-        ['prompt'=>'Pilih Tag Name'])?>
+        ['prompt'=>'Pilih Tag Name'])?>-->
 
     <!--<?= $form->field($model, 'id_category')->textInput() ?>-->
     <?= $form->field($model, 'id_category')->dropDownList(

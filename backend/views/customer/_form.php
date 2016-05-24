@@ -16,17 +16,17 @@ use backend\models\Profile;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <!--<?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>-->
-    <?= $form->field($model, 'username')->dropDownList(
+    <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
+    <!--<?= $form->field($model, 'username')->dropDownList(
         ArrayHelper::map(Customer::find()->all(),'id', 'username'),
-        ['prompt'=>'Pilih Name'])?>
+        ['prompt'=>'Pilih Name'])?>-->
 
     <!--<?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>-->
 
-    <!--<?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>-->
-    <?= $form->field($model, 'email')->dropDownList(
+    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+    <!--<?= $form->field($model, 'email')->dropDownList(
         ArrayHelper::map(Customer::find()->all(),'id', 'email'),
-        ['prompt'=>'Pilih Email'])?>
+        ['prompt'=>'Pilih Email'])?>-->
 
     <!--<?= $form->field($model, 'facebook_id')->textInput(['maxlength' => true]) ?>-->
 

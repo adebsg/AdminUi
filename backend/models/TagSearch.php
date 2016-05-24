@@ -18,7 +18,7 @@ class TagSearch extends Tag
     public function rules()
     {
         return [
-            [['id', 'id_category'], 'integer'],
+            [['id', 'category'], 'integer'],
             [['tag_name'], 'safe'],
         ];
     }
@@ -42,11 +42,19 @@ class TagSearch extends Tag
     public function search($params)
     {
         $query = Tag::find();
-
+		
+        $query->joinWith(['category']);
+        
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
-
+		
+        // Lets do the same with country now
+        $dataProvider->sort->attributes['category'] = [
+        	'asc' => ['category.category_name' => SORT_ASC],
+        	'desc' => ['category.category_name' => SORT_DESC],
+        ];
+        
         $this->load($params);
 
         if (!$this->validate()) {
@@ -62,6 +70,8 @@ class TagSearch extends Tag
 
         $query->andFilterWhere(['like', 'tag_name', $this->tag_name]);
 
+        $query->andFilterWhere(['like', 'category.category_name', $this->category]);
+        
         return $dataProvider;
     }
 }
